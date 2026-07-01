@@ -62,3 +62,5 @@ In low-power mode the app:
 - uses OpenCV face detection only
 - reduces webcam resolution and recognition frequency
 - refreshes the marked-attendance table less often to save CPU
+# dev-by Mohammed Kahab K 
+
