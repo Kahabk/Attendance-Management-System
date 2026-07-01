@@ -17,7 +17,7 @@ def render() -> None:
         with st.form("login_form", clear_on_submit=False):
             username = st.text_input("Username or Email")
             password = st.text_input("Password", type="password")
-            submitted = st.form_submit_button("Sign in", use_container_width=True)
+            submitted = st.form_submit_button("Sign in", width="stretch")
         if submitted:
             user, token = auth_service.authenticate(username=username.strip(), password=password)
             if user and token:
@@ -36,7 +36,7 @@ def render() -> None:
     with tab_forgot:
         with st.form("forgot_form"):
             identity = st.text_input("Username or Email", key="forgot_identity")
-            submitted = st.form_submit_button("Generate Reset Token", use_container_width=True)
+            submitted = st.form_submit_button("Generate Reset Token", width="stretch")
         if submitted:
             ok, message, token = auth_service.request_password_reset(identity.strip())
             if ok and token:
@@ -52,7 +52,7 @@ def render() -> None:
             token = st.text_input("Reset Token")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm New Password", type="password")
-            submitted = st.form_submit_button("Reset Password", use_container_width=True)
+            submitted = st.form_submit_button("Reset Password", width="stretch")
         if submitted:
             if new_password != confirm_password:
                 st.error("Passwords do not match")
@@ -65,4 +65,3 @@ def render() -> None:
 
     if get_token():
         st.info("You are already signed in. Use the sidebar navigation.")
-

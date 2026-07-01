@@ -46,16 +46,16 @@ def render(current_user: dict[str, object]) -> None:
         "Upload face images",
         type=["jpg", "jpeg", "png"],
         accept_multiple_files=True,
-        help="Upload front-facing, well-lit images. Minimum 20 recommended.",
+        help="Upload front-facing, well-lit images. One clear face photo is enough.",
     )
-    camera_photo = st.camera_input("Capture a webcam sample")
+    camera_photo = st.camera_input("Capture a face photo")
 
     total_samples = len(uploaded_files or []) + (1 if camera_photo else 0)
     st.write(f"Samples selected: {total_samples}")
 
-    if st.button("Register Faces", use_container_width=True):
-        if total_samples < 20:
-            st.error("Please provide at least 20 high-quality face images.")
+    if st.button("Register Faces", width="stretch"):
+        if total_samples < 1:
+            st.error("Please upload or capture at least one clear face image.")
             return
 
         embeddings: list[np.ndarray] = []
@@ -112,4 +112,3 @@ def render(current_user: dict[str, object]) -> None:
 
         st.success(f"Registered {saved} embeddings. Rejected samples: {rejected}")
         logger.info("Registered %s face embeddings for employee %s", saved, employee_id)
-

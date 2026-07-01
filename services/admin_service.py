@@ -9,7 +9,7 @@ import pandas as pd
 from sqlalchemy import func, or_
 
 from config import settings
-from database import backup_database, get_db_session, restore_database
+from database import backup_database, get_db_session, reset_database, restore_database
 from models import AuditLog, Camera, Department, Employee, LogEntry, Setting, User
 from utils.logger import logger
 from utils.security import hash_password
@@ -189,6 +189,9 @@ class AdminService:
 
     def restore_db(self, source_path: Path) -> None:
         restore_database(source_path)
+
+    def reset_database(self) -> None:
+        reset_database()
 
     def log_message(self, level: str, message: str, source: str | None = None) -> None:
         logger.log(getattr(__import__("logging"), level.upper(), 20), message)

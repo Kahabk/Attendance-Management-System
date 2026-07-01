@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
+from typing import Iterable
 
 import pandas as pd
 from reportlab.lib import colors
@@ -16,6 +17,21 @@ class ExportService:
     def _ensure_export_dir(self) -> Path:
         settings.export_dir.mkdir(parents=True, exist_ok=True)
         return settings.export_dir
+
+    def list_exports(self, suffix: str | None = None) -> list[Path]:
+        export_dir = self._ensure_export_dir()
+        files = sorted((path for path in export_dir.iterdir() if path.is_file()), key=lambda item: item.stat().st_mtime, reverse=True)
+        if suffix is None:
+            return files
+        normalized = suffix.lower().lstrip(".")
+        return [path for path in files if path.suffix.lower().lstrip(".") == normalized]
+
+    def delete_export(self, path: Path) -> bool:
+        try:
+            path.unlink()
+            return True
+        except FileNotFoundError:
+            return False
 
     def export_csv(self, df: pd.DataFrame, filename: str) -> Path:
         path = self._ensure_export_dir() / filename
@@ -52,4 +68,3 @@ class ExportService:
 
 
 export_service = ExportService()
-

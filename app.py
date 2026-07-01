@@ -46,7 +46,7 @@ with st.sidebar:
     if current_user["role"] == "Admin":
         page_options = ["Dashboard", "Employees", "Register Face", "Attendance", "Reports", "Settings", "Admin"]
     page = st.radio("Navigation", page_options, index=0)
-    if st.button("Logout", use_container_width=True):
+    if st.button("Logout", width="stretch"):
         token = get_token()
         if token:
             auth_service.logout(token)
@@ -69,4 +69,3 @@ elif page == "Settings":
     SettingsPage.render(current_user)
 elif page == "Admin":
     Admin.render(current_user)
-

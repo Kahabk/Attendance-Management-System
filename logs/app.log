@@ -1414,3 +1414,576 @@
 2026-07-01 11:28:26,343 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
 2026-07-01 11:28:26,964 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
 2026-07-01 11:28:27,527 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:47,547 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:49:48,844 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:49,284 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:49,834 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:50,425 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:50,934 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:51,388 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:51,894 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:52,517 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:53,127 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:53,641 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:54,195 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:54,732 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:55,264 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:55,803 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:56,414 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:56,871 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:57,403 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:57,868 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:58,510 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:59,052 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:49:59,609 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:00,168 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:00,785 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:01,283 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:01,845 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:09,611 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:15,052 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:16,749 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:17,344 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:17,953 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:18,543 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:19,122 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:20,476 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:50:26,760 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:13,773 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:14,429 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:15,117 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:15,744 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:16,482 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:17,158 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:17,909 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:18,681 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:19,388 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:20,174 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:20,814 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:21,451 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:22,131 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:22,768 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:23,535 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:24,236 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:24,913 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:25,549 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:26,398 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:27,147 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:27,762 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:28,544 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:29,161 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:29,772 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:51:31,105 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:39,347 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:53:40,585 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:41,133 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:41,719 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:42,274 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:42,874 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:43,465 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:43,975 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:44,475 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:44,970 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:45,559 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:46,072 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:46,520 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:46,971 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:47,478 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:47,970 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:48,581 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:49,110 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:49,614 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:50,179 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:51,330 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:51,974 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:52,464 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:52,979 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:53,480 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:54,066 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:54,614 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:57,450 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:57,996 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:58,554 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:59,177 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:53:59,724 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:00,305 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:00,940 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:01,472 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:04,876 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:05,385 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:05,857 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:08,314 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:08,858 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:15,494 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:16,085 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:16,878 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:54:17,505 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 11:56:37,413 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:57:03,835 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:57:10,493 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:57:18,708 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:57:28,953 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:57:44,661 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:58:06,693 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 11:58:17,852 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:00:08,316 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:01:20,840 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:01:27,889 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:01:31,626 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:01:32,882 [INFO] attendance_system - Registered 1 face embeddings for employee 3
+2026-07-01 12:01:42,396 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:01:50,896 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:02:46,237 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:02:50,717 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:02:51,819 [INFO] attendance_system - Registered 1 face embeddings for employee 4
+2026-07-01 12:03:00,223 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:03:04,754 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:05,637 [INFO] attendance_system - Attendance recognition result for 1103: Check-in marked successfully
+2026-07-01 12:03:09,929 [INFO] attendance_system - Attendance recognition result for 1103: Check-out marked successfully
+2026-07-01 12:03:10,447 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:14,440 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:14,974 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:15,527 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:16,051 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:17,128 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:17,700 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:22,365 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:22,999 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:23,592 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:24,165 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:24,739 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:25,348 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:25,764 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:26,346 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:29,385 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:29,866 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:32,080 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:03:32,621 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:10,034 [INFO] attendance_system - Attendance recognition result for 1104: Check-in marked successfully
+2026-07-01 12:04:10,575 [INFO] attendance_system - Attendance recognition result for 1104: Check-out marked successfully
+2026-07-01 12:04:11,149 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:11,720 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:24,492 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:25,122 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:25,801 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:26,282 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:27,390 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:27,939 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:28,537 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:04:29,163 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:03,732 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:04,197 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:06,113 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:09,558 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:10,123 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:11,234 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:52,736 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:54,154 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:54,730 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:55,295 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:55,825 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:05:56,412 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:06,115 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:06,685 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:07,378 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:07,948 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:14,003 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:14,515 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:15,110 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:06:15,691 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:03,824 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:04,440 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:05,088 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:05,694 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:06,858 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:07,616 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:08,237 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:08,752 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:09,301 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:09,876 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:10,530 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:11,091 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:11,674 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:12,284 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:12,838 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:13,351 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:13,900 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:14,506 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:15,109 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:15,740 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:16,280 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:16,925 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:17,616 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:18,187 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:18,630 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:19,249 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:19,740 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:22,628 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:23,819 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:24,373 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:25,709 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:26,241 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:26,765 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:27,262 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:27,832 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:28,352 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:28,857 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:29,391 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:07:29,914 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:10:50,804 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:10:51,684 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:04,306 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:07,138 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:17,242 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:22,785 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:23,611 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:24,466 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:25,321 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:26,090 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:26,739 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:27,361 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:27,984 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:29,131 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:32,523 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:33,170 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:33,727 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:46,352 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:46,935 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:47,481 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:48,085 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:48,695 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:49,314 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:49,830 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:50,430 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:51,098 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:51,596 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:52,169 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:52,768 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:53,266 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:53,822 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:54,496 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:55,095 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:55,781 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:56,385 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:57,075 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:11:57,667 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:05,316 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:05,843 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:08,488 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:09,257 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:09,990 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:10,579 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:11,116 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:11,839 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:12,395 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:13,067 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:13,572 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:14,079 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:14,606 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:15,348 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:15,885 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:16,451 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:17,109 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:17,729 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:18,235 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:18,844 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:19,439 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:20,076 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:20,728 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:21,287 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:21,923 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:22,569 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:23,114 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:23,668 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:24,230 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:24,881 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:12:25,502 [WARNING] attendance_system - Attendance marking failed during recognition: can't subtract offset-naive and offset-aware datetimes
+2026-07-01 12:13:34,544 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:03,488 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:07,353 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:10,167 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:11,377 [INFO] attendance_system - Registered 1 face embeddings for employee 3
+2026-07-01 12:14:20,060 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:29,252 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:30,438 [INFO] attendance_system - Registered 1 face embeddings for employee 5
+2026-07-01 12:14:39,898 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:14:42,157 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:42,779 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:45,134 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:45,758 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:46,309 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:46,802 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:47,240 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:47,794 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:48,328 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:48,805 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:49,401 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:14:58,329 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:15:02,833 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:15:13,693 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:15:25,432 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:15:26,723 [INFO] attendance_system - Registered 1 face embeddings for employee 5
+2026-07-01 12:15:35,523 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:15:36,426 [INFO] attendance_system - Attendance recognition result for 11101: Check-in marked successfully
+2026-07-01 12:15:36,965 [INFO] attendance_system - Attendance recognition result for 11101: Check-out marked successfully
+2026-07-01 12:15:37,378 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:37,961 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:15:38,577 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:15:39,204 [INFO] attendance_system - Attendance recognition result for 1103: Attendance ignored due to cooldown
+2026-07-01 12:15:39,778 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:40,351 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:40,943 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:41,519 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:42,001 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:42,563 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:43,030 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:43,591 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:15:44,233 [INFO] attendance_system - Attendance recognition result for 11101: Attendance ignored due to cooldown
+2026-07-01 12:17:11,726 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:17:12,560 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:17:20,132 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:21:53,438 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:21:54,904 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:55,434 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:55,963 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:56,599 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:57,206 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:57,882 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:58,486 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:59,031 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:21:59,605 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:00,224 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:00,827 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:01,400 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:01,955 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:02,575 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:03,264 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:03,721 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:04,360 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:04,903 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:05,407 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:05,929 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:06,515 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:07,001 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:07,546 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:08,030 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:08,609 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:09,136 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:09,685 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:10,165 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:10,743 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:36,847 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:37,432 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:38,041 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:38,620 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:39,118 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:39,978 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:40,637 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:41,239 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:42,044 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:42,790 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:43,486 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:22:44,340 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:00,297 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:01,637 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:02,333 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:02,952 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:03,505 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:04,329 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:05,031 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:05,818 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:06,621 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:07,273 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:07,977 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:08,597 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:09,407 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:10,260 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:10,999 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:11,712 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:12,344 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:12,934 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:13,556 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:14,308 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:14,965 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:15,706 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:16,542 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:17,156 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:17,785 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:28:18,682 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:29:40,999 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:29:53,316 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:03,375 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:30:28,682 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:31,068 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:31,866 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:33,301 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:33,974 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:34,805 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:35,578 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:37,128 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:37,760 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:38,340 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:39,085 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:39,691 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:40,135 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:40,880 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:41,633 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:42,372 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:42,989 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:43,677 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:44,474 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:45,068 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:45,657 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:46,246 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:46,871 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:47,867 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:48,365 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:48,842 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:49,341 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:49,798 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:50,378 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:50,904 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:51,571 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:52,252 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:52,849 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:53,433 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:54,027 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:54,666 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:55,277 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:55,953 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:56,550 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:57,116 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:57,685 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:58,306 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:58,871 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:30:59,402 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:00,033 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:00,558 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:01,131 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:01,701 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:02,350 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:02,892 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:03,421 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:04,002 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:04,546 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:05,214 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:06,112 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:06,682 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:07,300 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:07,972 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:08,541 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:09,105 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:09,631 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:10,289 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:10,916 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:11,547 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:12,187 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:12,613 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:13,128 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:13,703 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:14,335 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:14,950 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:15,540 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:16,162 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:16,883 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:17,373 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:18,027 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:21,339 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:21,917 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:22,475 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:23,028 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:32,269 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:32,845 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:33,339 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:33,966 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:34,588 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:35,138 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:35,767 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:36,368 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:37,065 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:37,626 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:38,259 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:38,856 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:39,384 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:39,967 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:40,604 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:41,200 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:41,670 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:42,976 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:43,463 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:44,675 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:45,341 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:46,330 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:46,942 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:47,419 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:48,492 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:48,980 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:49,478 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:49,963 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:50,551 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:51,122 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:52,914 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:54,033 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:54,711 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:55,311 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:55,926 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:56,450 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:56,920 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:57,530 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:58,803 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:31:59,274 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:32:16,512 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:32:17,138 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:32:20,032 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:20,627 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:21,250 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:21,883 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:22,450 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:23,015 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:23,558 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:24,139 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:25,168 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:25,722 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:26,310 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:28,378 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:28,940 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:29,463 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:30,403 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:42,018 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:32:42,603 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already completed for today
+2026-07-01 12:33:14,945 [INFO] attendance_system - Deleted 0 attendance records
+2026-07-01 12:33:22,804 [INFO] attendance_system - Deleted 0 attendance records
+2026-07-01 12:33:47,021 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:33:47,966 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already completed for today
+2026-07-01 12:38:55,327 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:40:30,704 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:43:25,517 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:43:40,335 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:43:41,462 [INFO] attendance_system - Attendance recognition result for 11001: Check-in marked successfully
+2026-07-01 12:44:21,315 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:45:11,896 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:45:34,846 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:45:35,802 [INFO] attendance_system - Attendance recognition result for 11002: Check-in marked successfully
+2026-07-01 12:45:41,439 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already marked as check-in
+2026-07-01 12:46:59,780 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:47:00,792 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already marked as check-in
+2026-07-01 12:47:06,950 [INFO] attendance_system - Attendance recognition result for 11002: Attendance already marked as check-in
+2026-07-01 12:48:22,841 [INFO] attendance_system - Attendance recognition result for 11001: Attendance already marked as check-in
+2026-07-01 12:50:44,703 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:50:45,720 [INFO] attendance_system - Attendance recognition result for 11001: Check-out marked successfully
+2026-07-01 12:51:45,139 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:52:03,503 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:52:11,699 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:52:12,973 [INFO] attendance_system - Registered 1 face embeddings for employee 3
+2026-07-01 12:52:24,996 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:52:27,702 [INFO] attendance_system - Attendance recognition result for 11003: Check-in marked successfully
+2026-07-01 12:52:39,844 [INFO] attendance_system - Attendance recognition result for 11002: Check-out marked successfully
+2026-07-01 12:52:55,216 [INFO] attendance_system - Attendance recognition result for 11001: Attendance ignored due to cooldown
+2026-07-01 12:53:59,365 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:54:05,157 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:54:26,092 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:54:32,124 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:54:33,349 [INFO] attendance_system - Registered 1 face embeddings for employee 4
+2026-07-01 12:54:42,918 [INFO] attendance_system - InsightFace buffalo_l model initialized
+2026-07-01 12:54:46,544 [INFO] attendance_system - Attendance recognition result for 11004: Check-in marked successfully
+2026-07-01 12:55:01,317 [INFO] attendance_system - Attendance recognition result for 11003: Check-out marked successfully

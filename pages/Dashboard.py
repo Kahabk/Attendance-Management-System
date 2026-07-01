@@ -35,19 +35,18 @@ def render(current_user: dict[str, object]) -> None:
     with chart_cols[0]:
         if not daily.empty:
             fig = px.line(daily, x="date", y="present", title="Daily Attendance", markers=True)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
     with chart_cols[1]:
         if not weekly.empty:
             fig = px.bar(weekly, x="week", y="present", title="Weekly Attendance", text_auto=True)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     chart_cols2 = st.columns(2)
     with chart_cols2[0]:
         if not monthly.empty:
             fig = px.area(monthly, x="month", y="present", title="Monthly Attendance")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
     with chart_cols2[1]:
         if not dept.empty:
             fig = px.bar(dept, x="department", y="present_today", color="employees", title="Department Statistics", text_auto=True)
-            st.plotly_chart(fig, use_container_width=True)
-
+            st.plotly_chart(fig, width="stretch")

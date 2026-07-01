@@ -17,6 +17,14 @@ from utils.security import utcnow
 
 
 class AttendanceService:
+    @staticmethod
+    def _ensure_aware_datetime(value: datetime | None) -> datetime | None:
+        if value is None:
+            return None
+        if value.tzinfo is None:
+            return value.replace(tzinfo=timezone.utc)
+        return value.astimezone(timezone.utc)
+
     def _setting(self, session: Session, key: str, default: str) -> str:
         row = session.get(Setting, key)
         return row.value if row is not None else default
@@ -51,7 +59,9 @@ class AttendanceService:
         notes: str | None = None,
         at: datetime | None = None,
     ) -> tuple[bool, str]:
-        now = at or utcnow()
+        now = self._ensure_aware_datetime(at or utcnow())
+        if now is None:
+            return False, "Invalid recognition time"
         with get_db_session() as session:
             employee = session.get(Employee, employee_id)
             if employee is None or not employee.is_active:
@@ -78,7 +88,7 @@ class AttendanceService:
                     latest.status = "checked_out"
                     return True, "Check-out marked successfully"
 
-                last_moment = latest.check_out_at or latest.check_in_at
+                last_moment = self._ensure_aware_datetime(latest.check_out_at or latest.check_in_at)
                 if last_moment and now - last_moment < cooldown:
                     return False, "Attendance ignored due to cooldown"
                 latest.confidence = max(latest.confidence, confidence)
@@ -253,6 +263,48 @@ class AttendanceService:
                 query = query.filter(Attendance.attendance_date <= end_date)
             rows = query.order_by(Attendance.attendance_date.desc(), Attendance.check_in_at.desc()).all()
         return pd.DataFrame(rows)
+
+    def update_attendance(
+        self,
+        attendance_id: int,
+        *,
+        attendance_date: date | None = None,
+        check_in_at: datetime | None = None,
+        check_out_at: datetime | None = None,
+        status: str | None = None,
+        confidence: float | None = None,
+        face_embedding_id: int | None = None,
+        camera_id: str | None = None,
+        device: str | None = None,
+        location: str | None = None,
+        notes: str | None = None,
+    ) -> tuple[bool, str]:
+        with get_db_session() as session:
+            row = session.get(Attendance, attendance_id)
+            if row is None:
+                return False, "Attendance record not found"
+
+            if attendance_date is not None:
+                row.attendance_date = attendance_date
+            if check_in_at is not None:
+                row.check_in_at = self._ensure_aware_datetime(check_in_at)
+            if check_out_at is not None:
+                row.check_out_at = self._ensure_aware_datetime(check_out_at)
+            if status is not None:
+                row.status = status
+            if confidence is not None:
+                row.confidence = confidence
+            if face_embedding_id is not None:
+                row.face_embedding_id = face_embedding_id
+            if camera_id is not None:
+                row.camera_id = camera_id
+            if device is not None:
+                row.device = device
+            if location is not None:
+                row.location = location
+            if notes is not None:
+                row.notes = notes
+            return True, "Attendance updated successfully"
 
     def todays_attendance(self) -> pd.DataFrame:
         df = self.attendance_history(start_date=date.today(), end_date=date.today())

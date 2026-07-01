@@ -54,3 +54,30 @@ def backup_database(destination: Path) -> Path:
 
 def restore_database(source: Path) -> None:
     shutil.copy2(source, DATABASE_PATH)
+
+
+def reset_database(*, reseed_defaults: bool = True, clear_files: bool = True) -> None:
+    Base.metadata.drop_all(bind=engine)
+    engine.dispose()
+
+    if DATABASE_PATH.exists():
+        DATABASE_PATH.unlink()
+    for suffix in ("-wal", "-shm"):
+        sidecar = DATABASE_PATH.with_name(f"{DATABASE_PATH.name}{suffix}")
+        if sidecar.exists():
+            sidecar.unlink()
+
+    DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    Base.metadata.create_all(bind=engine)
+    upgrade_database(engine)
+
+    if reseed_defaults:
+        with SessionLocal() as session:
+            seed_defaults(session)
+            session.commit()
+
+    if clear_files:
+        for folder in [settings.export_dir, settings.upload_dir, settings.embeddings_dir]:
+            if folder.exists():
+                shutil.rmtree(folder)
+            folder.mkdir(parents=True, exist_ok=True)

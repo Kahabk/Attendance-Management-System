@@ -84,7 +84,7 @@ def render(current_user: dict[str, object]) -> None:
     section_title("Employee Management")
     search = st.text_input("Search employees", placeholder="Search by ID, name, or email")
     df = admin_service.list_employees(search.strip() or None)
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, hide_index=True, width="stretch")
 
     col_left, col_right = st.columns(2)
     with col_left:
@@ -104,7 +104,7 @@ def render(current_user: dict[str, object]) -> None:
             create_user = st.checkbox("Create login account", value=False)
             username = st.text_input("Login Username", disabled=not create_user)
             password = st.text_input("Login Password", type="password", disabled=not create_user)
-            submitted = st.form_submit_button("Create Employee", use_container_width=True)
+            submitted = st.form_submit_button("Create Employee", width="stretch")
 
         if submitted:
             if not employee_id or not name:
@@ -162,7 +162,7 @@ def render(current_user: dict[str, object]) -> None:
                 upd_joining = st.date_input("Joining Date", value=employee.joining_date or date.today())
                 upd_active = st.checkbox("Active", value=employee.is_active)
                 upd_photo = st.file_uploader("Upload new photo", type=["jpg", "jpeg", "png"])
-                save = st.form_submit_button("Save Changes", use_container_width=True)
+                save = st.form_submit_button("Save Changes", width="stretch")
             if save:
                 photo_path = None
                 if upd_photo is not None:
@@ -186,7 +186,7 @@ def render(current_user: dict[str, object]) -> None:
                     st.info(f"Registered {saved_count} face embeddings. Rejected samples: {rejected_count}.")
                 st.rerun()
 
-            if st.button("Delete Employee", type="primary", use_container_width=True):
+            if st.button("Delete Employee", type="primary", width="stretch"):
                 admin_service.delete_employee(employee.id)
                 st.success("Employee deleted")
                 st.rerun()

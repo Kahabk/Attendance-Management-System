@@ -61,6 +61,9 @@ class Settings:
     attendance_refresh_seconds: int = int(os.getenv("ATTENDANCE_REFRESH_SECONDS", "4" if low_power_mode else "2"))
     camera_width: int = int(os.getenv("CAMERA_WIDTH", "640" if low_power_mode else "960"))
     camera_height: int = int(os.getenv("CAMERA_HEIGHT", "480" if low_power_mode else "720"))
+    attendance_reentry_gap_seconds: int = int(
+        os.getenv("ATTENDANCE_REENTRY_GAP_SECONDS", "90" if low_power_mode else "45")
+    )
 
     def ensure_directories(self) -> None:
         for folder in [

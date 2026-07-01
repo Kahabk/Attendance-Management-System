@@ -63,16 +63,17 @@ def seed_defaults(session: Session) -> None:
             ]
         )
 
-    if session.query(Setting).count() == 0:
-        defaults = {
-            "recognition_threshold": str(settings.threshold),
-            "attendance_cooldown_minutes": str(settings.attendance_cooldown_minutes),
-            "theme": settings.theme,
-            "language": settings.language,
-            "camera_id": settings.camera_id,
-            "work_start_time": settings.work_start_time,
-        }
-        for key, value in defaults.items():
+    defaults = {
+        "recognition_threshold": str(settings.threshold),
+        "attendance_cooldown_minutes": str(settings.attendance_cooldown_minutes),
+        "attendance_reentry_gap_seconds": str(settings.attendance_reentry_gap_seconds),
+        "theme": settings.theme,
+        "language": settings.language,
+        "camera_id": settings.camera_id,
+        "work_start_time": settings.work_start_time,
+    }
+    for key, value in defaults.items():
+        if session.get(Setting, key) is None:
             session.add(Setting(key=key, value=value))
 
     if session.query(Camera).count() == 0:

@@ -39,12 +39,12 @@ def render(current_user: dict[str, object]) -> None:
         end_date=end_date,
     )
 
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, hide_index=True, width="stretch")
 
     if not df.empty:
         st.subheader("Attendance by Day")
         day_df = df.groupby("attendance_date").size().reset_index(name="count")
-        st.plotly_chart(px.bar(day_df, x="attendance_date", y="count", title="Attendance Activity"), use_container_width=True)
+        st.plotly_chart(px.bar(day_df, x="attendance_date", y="count", title="Attendance Activity"), width="stretch")
 
         csv_path = export_service.export_csv(df, f"attendance_{start_date}_{end_date}.csv")
         xlsx_path = export_service.export_excel(df, f"attendance_{start_date}_{end_date}.xlsx")
@@ -52,16 +52,23 @@ def render(current_user: dict[str, object]) -> None:
 
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.download_button("Download CSV", data=csv_path.read_bytes(), file_name=csv_path.name, mime="text/csv", use_container_width=True)
+            st.download_button("Download CSV", data=csv_path.read_bytes(), file_name=csv_path.name, mime="text/csv", width="stretch")
         with col2:
             st.download_button(
                 "Download Excel",
                 data=xlsx_path.read_bytes(),
                 file_name=xlsx_path.name,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True,
+                width="stretch",
             )
         with col3:
-            st.download_button("Download PDF", data=pdf_path.read_bytes(), file_name=pdf_path.name, mime="application/pdf", use_container_width=True)
+            st.download_button("Download PDF", data=pdf_path.read_bytes(), file_name=pdf_path.name, mime="application/pdf", width="stretch")
+
+        if st.button("Delete Generated CSV", width="stretch"):
+            if export_service.delete_export(csv_path):
+                st.success(f"Deleted {csv_path.name}")
+                st.rerun()
+            else:
+                st.error("CSV file not found.")
     else:
         st.info("No attendance records found for the selected filters.")

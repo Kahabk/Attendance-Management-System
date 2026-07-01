@@ -43,6 +43,7 @@ class RecognitionEngine:
         self.face_service = FaceService()
         self.threshold = threshold or attendance_service.recognition_threshold()
         self._cache: dict[str, Any] = {"timestamp": 0.0, "embeddings": []}
+        self._last_seen: dict[int, float] = {}
 
     def _refresh_cache(self) -> None:
         now = time.time()
@@ -98,11 +99,12 @@ class RecognitionEngine:
                 continue
 
             matched = self._cache["embeddings"][best_index]
+            employee_id = int(matched["employee_id"])
             labels.append(f'{matched["employee_code"]} - {matched["employee_name"]} ({best_score:.2f})')
             hits.append(
                 RecognitionHit(
                     face_embedding_id=int(matched["face_embedding_id"]),
-                    employee_id=int(matched["employee_id"]),
+                    employee_id=employee_id,
                     employee_name=str(matched["employee_name"]),
                     employee_code=str(matched["employee_code"]),
                     department=str(matched["department"] or ""),
@@ -112,19 +114,37 @@ class RecognitionEngine:
                     face_sample_path=str(matched["face_sample_path"] or ""),
                 )
             )
-            try:
-                marked, message = attendance_service.record_recognition(
-                    employee_id=int(matched["employee_id"]),
-                    confidence=float(best_score),
-                    face_embedding_id=int(matched["face_embedding_id"]),
-                    camera_id=camera_id,
-                    device=device,
-                )
-                logger.info("Attendance recognition result for %s: %s", matched["employee_code"], message)
-                hits[-1].status = "marked" if marked else "ignored"
-                hits[-1].attendance_message = message
-            except Exception as exc:  # pragma: no cover - real-time runtime path
-                logger.warning("Attendance marking failed during recognition: %s", exc)
+            now_ts = time.time()
+            last_seen = self._last_seen.get(employee_id)
+            should_mark = last_seen is None or (now_ts - last_seen) >= settings.attendance_reentry_gap_seconds
+            self._last_seen[employee_id] = now_ts
+
+            if should_mark:
+                try:
+                    marked, message = attendance_service.record_recognition(
+                        employee_id=employee_id,
+                        confidence=float(best_score),
+                        face_embedding_id=int(matched["face_embedding_id"]),
+                        camera_id=camera_id,
+                        device=device,
+                    )
+                    logger.info("Attendance recognition result for %s: %s", matched["employee_code"], message)
+                    if marked and "Check-in" in message:
+                        hits[-1].status = "IN"
+                        labels[-1] = f'{matched["employee_code"]} - {matched["employee_name"]} IN ({best_score:.2f})'
+                    elif marked and "Check-out" in message:
+                        hits[-1].status = "OUT"
+                        labels[-1] = f'{matched["employee_code"]} - {matched["employee_name"]} OUT ({best_score:.2f})'
+                    else:
+                        hits[-1].status = "DONE"
+                        labels[-1] = f'{matched["employee_code"]} - {matched["employee_name"]} DONE ({best_score:.2f})'
+                    hits[-1].attendance_message = message
+                except Exception as exc:  # pragma: no cover - real-time runtime path
+                    logger.warning("Attendance marking failed during recognition: %s", exc)
+            else:
+                hits[-1].status = "IN"
+                hits[-1].attendance_message = "Check-in active"
+                labels[-1] = f'{matched["employee_code"]} - {matched["employee_name"]} IN ({best_score:.2f})'
 
         annotated = self.face_service.draw_annotations(frame_rgb, faces, labels)
         return annotated, hits
