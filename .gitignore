@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+assets/models/*.onnx
+assets/models/*.part

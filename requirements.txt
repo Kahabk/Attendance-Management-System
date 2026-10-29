@@ -1,6 +1,6 @@
 streamlit>=1.37
 streamlit-webrtc>=0.47
-opencv-python-headless>=4.10
+opencv-python-headless>=4.10,<5
 insightface>=0.7.3
 onnxruntime>=1.18
 numpy>=1.26

@@ -10,13 +10,6 @@ from PIL import Image
 from config import settings
 from utils.logger import logger
 
-FaceAnalysis = None
-if not settings.low_power_mode:
-    try:
-        from insightface.app import FaceAnalysis  # type: ignore
-    except Exception:  # pragma: no cover - optional dependency fallback
-        pass
-
 
 @dataclass(slots=True)
 class FaceResult:
@@ -32,27 +25,37 @@ class FaceResult:
 class FaceService:
     def __init__(self) -> None:
         self.model = None
-        self.detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-        self.embedding_dim = 512
-        self._feature_matrix: np.ndarray | None = None
-        self._max_frame_width = settings.max_frame_width
+        self.recognizer = None
+        self.yunet = None
+        self.model_name = "unavailable"
+        self.initialization_error = ""
+        self.embedding_dim = 128
+        self._max_frame_width = max(160, settings.max_frame_width)
         if settings.low_power_mode:
-            try:
-                cv2.setNumThreads(1)
-            except Exception:
-                pass
+            cv2.setNumThreads(1)
+        try:
+            if settings.face_backend == "sface":
+                if not settings.yunet_model_path.is_file() or not settings.sface_model_path.is_file():
+                    raise FileNotFoundError("Run python scripts/download_face_models.py to install face models.")
+                self.yunet = cv2.FaceDetectorYN.create(str(settings.yunet_model_path), "", (320, 320), settings.face_detection_confidence, 0.3, 500)
+                self.recognizer = cv2.FaceRecognizerSF.create(str(settings.sface_model_path), "")
+                self.model_name = "sface-2021dec-v1"
+            elif settings.face_backend == "insightface":
+                from insightface.app import FaceAnalysis
+                self.model = FaceAnalysis(name="buffalo_l", allowed_modules=["detection", "recognition"], providers=["CPUExecutionProvider"])
+                self.model.prepare(ctx_id=-1, det_size=(settings.insightface_det_size, settings.insightface_det_size))
+                self.embedding_dim = 512
+                self.model_name = "insightface-buffalo_l-rgb-v1"
+            else:
+                raise ValueError("FACE_BACKEND must be sface or insightface")
+        except Exception as exc:
+            self.model = self.recognizer = self.yunet = None
+            self.initialization_error = str(exc)
+            logger.warning("Face recognition unavailable: %s", exc)
 
-        if FaceAnalysis is not None and not settings.low_power_mode:
-            try:
-                providers = ["CPUExecutionProvider"]
-                self.model = FaceAnalysis(name="buffalo_l", providers=providers)
-                self.model.prepare(ctx_id=0 if settings.use_gpu else -1, det_size=(settings.insightface_det_size, settings.insightface_det_size))
-                logger.info("InsightFace buffalo_l model initialized")
-            except Exception as exc:  # pragma: no cover - optional runtime path
-                logger.warning("InsightFace initialization failed, fallback will be used: %s", exc)
-                self.model = None
-        elif settings.low_power_mode:
-            logger.info("Low power mode enabled: using OpenCV fallback face detection only")
+    @property
+    def recognition_available(self) -> bool:
+        return self.recognizer is not None or self.model is not None
 
     @staticmethod
     def _ensure_rgb(image: np.ndarray | Image.Image) -> np.ndarray:
@@ -98,6 +101,7 @@ class FaceService:
 
     def detect_faces(self, frame: np.ndarray | Image.Image) -> list[dict[str, Any]]:
         image = self._ensure_rgb(frame)
+        original_image = image
         original_h, original_w = image.shape[:2]
         scale_x = scale_y = 1.0
         if original_w > self._max_frame_width:
@@ -107,6 +111,27 @@ class FaceService:
             scale_x = original_w / float(self._max_frame_width)
             scale_y = original_h / float(resized_h)
         faces: list[dict[str, Any]] = []
+
+        if self.yunet is not None:
+            bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+            self.yunet.setInputSize((image.shape[1], image.shape[0]))
+            _, detections = self.yunet.detect(bgr)
+            for detection in detections if detections is not None else []:
+                x, y, w, h = detection[:4]
+                bbox = (max(0, int(x * scale_x)), max(0, int(y * scale_y)),
+                        min(original_w, int((x + w) * scale_x)), min(original_h, int((y + h) * scale_y)))
+                x1, y1, x2, y2 = bbox
+                crop = original_image[y1:y2, x1:x2]
+                if crop.size == 0:
+                    continue
+                # Skip feature extraction for faces too small, dark or blurred to match reliably.
+                embedding = np.zeros(self.embedding_dim, dtype=np.float32)
+                if min(x2 - x1, y2 - y1) >= settings.face_detector_min_size and not self.is_dark(crop) and not self.is_blurry(crop):
+                    aligned = self.recognizer.alignCrop(bgr, detection)
+                    embedding = self.normalize_embedding(self.recognizer.feature(aligned))
+                kps = detection[4:14].reshape(5, 2) * np.array([scale_x, scale_y])
+                faces.append({"bbox": bbox, "embedding": embedding, "confidence": float(detection[-1]), "kps": kps})
+            return faces
 
         if self.model is not None:
             try:
@@ -123,50 +148,18 @@ class FaceService:
                             "bbox": (x1, y1, x2, y2),
                             "embedding": self.normalize_embedding(np.asarray(face.embedding, dtype=np.float32)),
                             "confidence": float(getattr(face, "det_score", 1.0)),
-                            "kps": np.asarray(getattr(face, "kps", None)) if getattr(face, "kps", None) is not None else None,
+                            "kps": np.asarray(face.kps) * np.array([scale_x, scale_y]) if getattr(face, "kps", None) is not None else None,
                         }
                     )
                 return faces
             except Exception as exc:  # pragma: no cover - runtime dependent
-                logger.warning("InsightFace detection failed, using fallback detector: %s", exc)
+                logger.warning("InsightFace detection failed: %s", exc)
+                return []
 
-        gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-        detections = self.detector.detectMultiScale(
-            gray,
-            scaleFactor=1.1,
-            minNeighbors=4,
-            minSize=(settings.face_detector_min_size, settings.face_detector_min_size),
-        )
-        for x, y, w, h in detections:
-            crop = image[y : y + h, x : x + w]
-            embedding = self._fallback_embedding(crop)
-            if scale_x != 1.0 or scale_y != 1.0:
-                x = int(round(x * scale_x))
-                y = int(round(y * scale_y))
-                w = int(round(w * scale_x))
-                h = int(round(h * scale_y))
-            faces.append(
-                {
-                    "bbox": (int(x), int(y), int(x + w), int(y + h)),
-                    "embedding": embedding,
-                    "confidence": 0.7,
-                    "kps": None,
-                }
-            )
-        return faces
-
-    def _fallback_embedding(self, face_img: np.ndarray) -> np.ndarray:
-        if face_img.size == 0:
-            return np.zeros(self.embedding_dim, dtype=np.float32)
-        gray = cv2.cvtColor(face_img, cv2.COLOR_RGB2GRAY)
-        resized = cv2.resize(gray, (32, 16), interpolation=cv2.INTER_AREA).astype(np.float32) / 255.0
-        return self.normalize_embedding(resized.flatten())
+        # No substitute pixel embeddings: unavailable models cannot identify people.
+        return []
 
     def evaluate_quality(self, image: np.ndarray, faces: list[dict[str, Any]] | None = None) -> tuple[bool, float, str]:
-        if self.is_blurry(image):
-            return False, 0.0, "blurred"
-        if self.is_dark(image):
-            return False, 0.0, "too_dark"
         if faces is None:
             faces = self.detect_faces(image)
         if len(faces) == 0:
@@ -180,12 +173,22 @@ class FaceService:
         area_ratio = max(0.0, ((x2 - x1) * (y2 - y1)) / float(max(w * h, 1)))
         if area_ratio < 0.04:
             return False, 0.2, "face_too_small"
+        crop = image[max(0, y1):max(0, y2), max(0, x1):max(0, x2)]
+        if crop.size == 0 or min(crop.shape[:2]) < settings.face_detector_min_size:
+            return False, 0.0, "face_too_small"
+        if self.is_dark(crop):
+            return False, 0.0, "too_dark"
+        if self.is_blurry(crop):
+            return False, 0.0, "blurred"
+        if not self.recognition_available or not np.any(face["embedding"]):
+            return False, 0.0, "recognition_unavailable"
         quality = float(np.clip((area_ratio * 8.0) + face["confidence"] * 0.2, 0.0, 1.0))
         return True, quality, "accepted"
 
-    def extract_face_embedding(self, image: np.ndarray | Image.Image) -> FaceResult | None:
+    def extract_face_embedding(self, image: np.ndarray | Image.Image, faces: list[dict[str, Any]] | None = None) -> FaceResult | None:
         rgb = self._ensure_rgb(image)
-        faces = self.detect_faces(rgb)
+        if faces is None:
+            faces = self.detect_faces(rgb)
         is_valid, quality, reason = self.evaluate_quality(rgb, faces)
         if not is_valid:
             return None
@@ -195,8 +198,8 @@ class FaceService:
         x1, y1, x2, y2 = face["bbox"]
         crop = rgb[max(0, y1) : max(0, y2), max(0, x1) : max(0, x2)]
         embedding = np.asarray(face["embedding"], dtype=np.float32).reshape(-1)
-        if embedding.size != self.embedding_dim and self.model is None:
-            embedding = np.pad(embedding, (0, max(self.embedding_dim - embedding.size, 0)))[: self.embedding_dim]
+        if embedding.size != self.embedding_dim or not np.all(np.isfinite(embedding)):
+            return None
         embedding = self.normalize_embedding(embedding)
         return FaceResult(
             bbox=face["bbox"],

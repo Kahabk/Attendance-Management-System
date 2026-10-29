@@ -13,6 +13,7 @@ class FaceEmbedding(Base, TimestampMixin):
     employee_id: Mapped[int] = mapped_column(ForeignKey("employees.id"), nullable=False, index=True)
     embedding: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
     normalized_embedding: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    model_name: Mapped[str] = mapped_column(String(64), default="legacy", nullable=False)
     embedding_dim: Mapped[int] = mapped_column(Integer, default=512, nullable=False)
     source_image_path: Mapped[str | None] = mapped_column(Text, nullable=True)
     quality_score: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)

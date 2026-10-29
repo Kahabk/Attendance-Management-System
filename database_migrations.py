@@ -18,6 +18,9 @@ def _column_exists(engine: Engine, table_name: str, column_name: str) -> bool:
 
 def upgrade_database(engine: Engine) -> None:
     with engine.begin() as connection:
+        # Model identity is required to prevent incompatible vectors being matched.
+        if not _column_exists(engine, "face_embeddings", "model_name"):
+            connection.execute(text("ALTER TABLE face_embeddings ADD COLUMN model_name VARCHAR(64) NOT NULL DEFAULT 'legacy'"))
         # Lightweight migrations for incremental schema evolution.
         migrations: list[tuple[str, str, str]] = [
             ("users", "reset_token_hash", "ALTER TABLE users ADD COLUMN reset_token_hash TEXT"),

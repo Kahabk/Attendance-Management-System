@@ -22,6 +22,9 @@ except Exception:  # pragma: no cover
 
 def _snapshot_recognition(image: Image.Image) -> None:
     engine = RecognitionEngine()
+    if not engine.face_service.recognition_available:
+        st.error(f"Face recognition unavailable. {engine.face_service.initialization_error}")
+        return
     rgb = np.array(image.convert("RGB"))
     annotated, hits = engine.recognize(rgb)
     st.image(annotated, caption="Recognition result", width="stretch")
@@ -108,7 +111,9 @@ def render(current_user: dict[str, object]) -> None:
             async_processing=True,
         )
         if ctx.video_processor:
-            st.metric("Recognition FPS", f"{ctx.video_processor.fps:.1f}")
+            if not ctx.video_processor.engine.face_service.recognition_available:
+                st.error(f"Face recognition unavailable. {ctx.video_processor.engine.face_service.initialization_error}")
+            st.metric("Inference FPS", f"{ctx.video_processor.fps:.1f}")
             if ctx.video_processor.last_hits:
                 for hit in ctx.video_processor.last_hits:
                     message = hit.attendance_message or "Face matched"
