@@ -62,5 +62,24 @@ In low-power mode the app:
 - uses OpenCV face detection only
 - reduces webcam resolution and recognition frequency
 - refreshes the marked-attendance table less often to save CPU
+
+The recognition cache normalizes enrolled embeddings once per refresh and uses
+matrix multiplication for matching. Empty enrollment results are cached too.
+Registration reuses face detections, and throttled video frames reuse the last
+rendered image without repeating RGB conversions. Low-power mode also skips
+importing InsightFace, reducing startup work and memory use.
+
+NumPy image inputs to `FaceService` must be RGB. Convert OpenCV BGR captures
+before calling it. The InsightFace adapter converts RGB to its required BGR.
+Because registration previously swapped color channels inconsistently, re-enroll
+faces after upgrading and validate recognition thresholds with your camera.
+
+The low-power fallback uses resized grayscale pixels as embeddings; it does not
+provide the recognition accuracy of InsightFace. Changing between these backends
+requires re-enrollment even though both produce 512-dimensional vectors.
+
+Performance has not been benchmarked on Raspberry Pi hardware. Measure CPU,
+memory, recognition latency, and false matches on the target device with the
+expected employee count before choosing a shorter inference interval.
 # dev-by Mohammed Kahab K 
 

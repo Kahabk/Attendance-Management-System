@@ -42,12 +42,12 @@ class RecognitionEngine:
     def __init__(self, threshold: float | None = None) -> None:
         self.face_service = FaceService()
         self.threshold = threshold or attendance_service.recognition_threshold()
-        self._cache: dict[str, Any] = {"timestamp": 0.0, "embeddings": []}
+        self._cache: dict[str, Any] = {"timestamp": None, "embeddings": [], "matrix": None}
         self._last_seen: dict[int, float] = {}
 
     def _refresh_cache(self) -> None:
-        now = time.time()
-        if now - float(self._cache["timestamp"]) < 10.0 and self._cache["embeddings"]:
+        now = time.monotonic()
+        if self._cache["timestamp"] is not None and now - self._cache["timestamp"] < 10.0:
             return
 
         records: list[dict[str, Any]] = []
@@ -71,29 +71,40 @@ class RecognitionEngine:
                         "embedding": blob_to_array(embedding_row.normalized_embedding),
                     }
                 )
-        self._cache = {"timestamp": now, "embeddings": records}
+        valid_records = []
+        vectors = []
+        for record in records:
+            vector = np.asarray(record.pop("embedding"), dtype=np.float32).reshape(-1)
+            if vector.size != self.face_service.embedding_dim or not np.all(np.isfinite(vector)):
+                continue
+            norm = np.linalg.norm(vector)
+            if norm <= 0:
+                continue
+            valid_records.append(record)
+            vectors.append(vector / norm)
+        matrix = np.ascontiguousarray(vectors, dtype=np.float32) if vectors else None
+        self._cache = {"timestamp": now, "embeddings": valid_records, "matrix": matrix}
 
     def recognize(self, frame_rgb: np.ndarray, camera_id: str = "default", device: str = "webcam") -> tuple[np.ndarray, list[RecognitionHit]]:
         self._refresh_cache()
         faces = self.face_service.detect_faces(frame_rgb)
         labels: list[str] = []
         hits: list[RecognitionHit] = []
-        candidate_embeddings = [row["embedding"] for row in self._cache["embeddings"]]
+        candidate_matrix = self._cache["matrix"]
 
         for face in faces:
             embedding = np.asarray(face["embedding"], dtype=np.float32)
             bbox = tuple(int(v) for v in face["bbox"])
-            if not candidate_embeddings:
+            if candidate_matrix is None:
                 labels.append("Unknown")
                 continue
-            best_score = -1.0
-            best_index = -1
             probe = self.face_service.normalize_embedding(embedding)
-            for idx, candidate in enumerate(candidate_embeddings):
-                score = float(np.dot(probe, self.face_service.normalize_embedding(candidate)))
-                if score > best_score:
-                    best_score = score
-                    best_index = idx
+            if probe.size != candidate_matrix.shape[1] or not np.all(np.isfinite(probe)):
+                labels.append("Unknown")
+                continue
+            scores = candidate_matrix @ probe
+            best_index = int(np.argmax(scores))
+            best_score = float(scores[best_index])
             if best_index < 0 or best_score < self.threshold:
                 labels.append("Unknown")
                 continue
@@ -114,7 +125,7 @@ class RecognitionEngine:
                     face_sample_path=str(matched["face_sample_path"] or ""),
                 )
             )
-            now_ts = time.time()
+            now_ts = time.monotonic()
             last_seen = self._last_seen.get(employee_id)
             should_mark = last_seen is None or (now_ts - last_seen) >= settings.attendance_reentry_gap_seconds
             self._last_seen[employee_id] = now_ts
@@ -162,18 +173,16 @@ class LiveVideoProcessor(VideoProcessorBase):  # pragma: no cover - depends on r
 
     def recv(self, frame: "av.VideoFrame") -> "av.VideoFrame":
         img = frame.to_ndarray(format="bgr24")
-        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        now = time.time()
+        now = time.monotonic()
         start = now
         if self._last_annotated_frame is None or now - self._last_inference_time >= self._min_interval:
+            rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             annotated, hits = self.engine.recognize(rgb)
             self.last_hits = hits
-            self._last_annotated_frame = annotated
+            self._last_annotated_frame = cv2.cvtColor(annotated, cv2.COLOR_RGB2BGR)
             self._last_inference_time = now
-            elapsed = max(time.time() - start, 1e-6)
+            elapsed = max(time.monotonic() - start, 1e-6)
             self.fps = 1.0 / elapsed
-        else:
-            annotated = self._last_annotated_frame
-        bgr = cv2.cvtColor(annotated, cv2.COLOR_RGB2BGR)
+        bgr = self._last_annotated_frame.copy()
         cv2.putText(bgr, f"FPS: {self.fps:.1f}", (18, 34), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
         return av.VideoFrame.from_ndarray(bgr, format="bgr24")

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
 from typing import Any
 
@@ -11,10 +10,12 @@ from PIL import Image
 from config import settings
 from utils.logger import logger
 
-try:
-    from insightface.app import FaceAnalysis  # type: ignore
-except Exception:  # pragma: no cover - optional dependency fallback
-    FaceAnalysis = None
+FaceAnalysis = None
+if not settings.low_power_mode:
+    try:
+        from insightface.app import FaceAnalysis  # type: ignore
+    except Exception:  # pragma: no cover - optional dependency fallback
+        pass
 
 
 @dataclass(slots=True)
@@ -61,8 +62,7 @@ class FaceService:
             image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
         elif image.shape[2] == 4:
             image = cv2.cvtColor(image, cv2.COLOR_RGBA2RGB)
-        else:
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        # NumPy callers supply RGB, just like PIL and the live camera pipeline.
         return image
 
     @staticmethod
@@ -110,7 +110,7 @@ class FaceService:
 
         if self.model is not None:
             try:
-                results = self.model.get(image)
+                results = self.model.get(cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
                 for face in results:
                     x1, y1, x2, y2 = map(int, face.bbox.tolist())
                     if scale_x != 1.0 or scale_y != 1.0:
@@ -162,12 +162,13 @@ class FaceService:
         resized = cv2.resize(gray, (32, 16), interpolation=cv2.INTER_AREA).astype(np.float32) / 255.0
         return self.normalize_embedding(resized.flatten())
 
-    def evaluate_quality(self, image: np.ndarray) -> tuple[bool, float, str]:
+    def evaluate_quality(self, image: np.ndarray, faces: list[dict[str, Any]] | None = None) -> tuple[bool, float, str]:
         if self.is_blurry(image):
             return False, 0.0, "blurred"
         if self.is_dark(image):
             return False, 0.0, "too_dark"
-        faces = self.detect_faces(image)
+        if faces is None:
+            faces = self.detect_faces(image)
         if len(faces) == 0:
             return False, 0.0, "no_face_detected"
         if len(faces) > 1:
@@ -184,10 +185,10 @@ class FaceService:
 
     def extract_face_embedding(self, image: np.ndarray | Image.Image) -> FaceResult | None:
         rgb = self._ensure_rgb(image)
-        is_valid, quality, reason = self.evaluate_quality(rgb)
+        faces = self.detect_faces(rgb)
+        is_valid, quality, reason = self.evaluate_quality(rgb, faces)
         if not is_valid:
             return None
-        faces = self.detect_faces(rgb)
         if not faces:
             return None
         face = faces[0]
