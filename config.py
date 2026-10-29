@@ -57,6 +57,8 @@ class Settings:
     sface_model_path: Path = Path(os.getenv("SFACE_MODEL_PATH", str(BASE_DIR / "assets" / "models" / "face_recognition_sface_2021dec.onnx")))
     recognition_margin: float = float(os.getenv("RECOGNITION_MARGIN", "0.08"))
     recognition_confirmations: int = max(1, int(os.getenv("RECOGNITION_CONFIRMATIONS", "3")))
+    face_blur_threshold: float = float(os.getenv("FACE_BLUR_THRESHOLD", "35"))
+    face_min_brightness: float = float(os.getenv("FACE_MIN_BRIGHTNESS", "40"))
     face_detection_confidence: float = float(os.getenv("FACE_DETECTION_CONFIDENCE", "0.9"))
     max_frame_width: int = int(os.getenv("MAX_FRAME_WIDTH", "640" if low_power_mode else "1280"))
     face_detector_min_size: int = int(os.getenv("FACE_DETECTOR_MIN_SIZE", "64" if low_power_mode else "80"))

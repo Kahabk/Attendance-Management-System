@@ -83,15 +83,45 @@ class FaceService:
         return float(np.clip(np.dot(a_n, b_n), -1.0, 1.0))
 
     @staticmethod
-    def is_blurry(image: np.ndarray, threshold: float = 80.0) -> bool:
+    def quality_metrics(image: np.ndarray) -> dict[str, float]:
+        """Measure a fixed-size face so upload resolution does not change blur policy."""
+        if image.size == 0:
+            return {"brightness": 0.0, "sharpness": 0.0}
         gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-        variance = cv2.Laplacian(gray, cv2.CV_64F).var()
-        return variance < threshold
+        normalized = cv2.resize(gray, (112, 112), interpolation=cv2.INTER_AREA)
+        return {"brightness": float(gray.mean()),
+                "sharpness": float(cv2.Laplacian(normalized, cv2.CV_32F).var())}
 
     @staticmethod
-    def is_dark(image: np.ndarray, threshold: float = 55.0) -> bool:
-        gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-        return float(np.mean(gray)) < threshold
+    def is_blurry(image: np.ndarray, threshold: float | None = None) -> bool:
+        return FaceService.quality_metrics(image)["sharpness"] < (settings.face_blur_threshold if threshold is None else threshold)
+
+    @staticmethod
+    def is_dark(image: np.ndarray, threshold: float | None = None) -> bool:
+        return FaceService.quality_metrics(image)["brightness"] < (settings.face_min_brightness if threshold is None else threshold)
+
+    @staticmethod
+    def _crop_quality_reason(crop: np.ndarray, metrics: dict[str, float]) -> str:
+        if crop.size == 0 or min(crop.shape[:2]) < settings.face_detector_min_size:
+            return "face_too_small"
+        if metrics["brightness"] < settings.face_min_brightness:
+            return "too_dark"
+        if metrics["sharpness"] < settings.face_blur_threshold:
+            return "blurred"
+        return "accepted"
+
+    @staticmethod
+    def rejection_message(reason: str) -> str:
+        return {
+            "no_face_detected": "No clear face found. Face the camera, keep your whole face visible, and add light in front of you.",
+            "multiple_faces": "More than one face found. Take a photo with only the employee in view.",
+            "face_too_small": "The face is too small to identify reliably. Move closer or crop the photo around the face.",
+            "too_dark": "The face is too dark. Add light in front of the face and avoid a bright window behind you.",
+            "blurred": "The face is too blurred. Hold still, clean the lens, and wait for the camera to focus.",
+            "recognition_unavailable": "The recognition model is unavailable. Restart the app after installing the face models.",
+            "face_features_unavailable": "The face could not be processed. Try a clear, front-facing photo without covering the eyes or nose.",
+            "inconsistent_face": "This face could not be confirmed against the earlier photos. Check the employee and try a front-facing photo in similar lighting.",
+        }.get(reason, "The photo could not be processed. Try taking another clear photo.")
 
     @staticmethod
     def _largest_box(boxes: list[tuple[int, int, int, int]]) -> tuple[int, int, int, int] | None:
@@ -126,11 +156,12 @@ class FaceService:
                     continue
                 # Skip feature extraction for faces too small, dark or blurred to match reliably.
                 embedding = np.zeros(self.embedding_dim, dtype=np.float32)
-                if min(x2 - x1, y2 - y1) >= settings.face_detector_min_size and not self.is_dark(crop) and not self.is_blurry(crop):
+                metrics = self.quality_metrics(crop)
+                if self._crop_quality_reason(crop, metrics) == "accepted":
                     aligned = self.recognizer.alignCrop(bgr, detection)
                     embedding = self.normalize_embedding(self.recognizer.feature(aligned))
                 kps = detection[4:14].reshape(5, 2) * np.array([scale_x, scale_y])
-                faces.append({"bbox": bbox, "embedding": embedding, "confidence": float(detection[-1]), "kps": kps})
+                faces.append({"bbox": bbox, "embedding": embedding, "confidence": float(detection[-1]), "kps": kps, "quality_metrics": metrics})
             return faces
 
         if self.model is not None:
@@ -160,6 +191,8 @@ class FaceService:
         return []
 
     def evaluate_quality(self, image: np.ndarray, faces: list[dict[str, Any]] | None = None) -> tuple[bool, float, str]:
+        if not self.recognition_available:
+            return False, 0.0, "recognition_unavailable"
         if faces is None:
             faces = self.detect_faces(image)
         if len(faces) == 0:
@@ -171,17 +204,16 @@ class FaceService:
         x1, y1, x2, y2 = face["bbox"]
         h, w = image.shape[:2]
         area_ratio = max(0.0, ((x2 - x1) * (y2 - y1)) / float(max(w * h, 1)))
-        if area_ratio < 0.04:
-            return False, 0.2, "face_too_small"
         crop = image[max(0, y1):max(0, y2), max(0, x1):max(0, x2)]
-        if crop.size == 0 or min(crop.shape[:2]) < settings.face_detector_min_size:
-            return False, 0.0, "face_too_small"
-        if self.is_dark(crop):
-            return False, 0.0, "too_dark"
-        if self.is_blurry(crop):
-            return False, 0.0, "blurred"
-        if not self.recognition_available or not np.any(face["embedding"]):
-            return False, 0.0, "recognition_unavailable"
+        metrics = face.get("quality_metrics")
+        if metrics is None:
+            metrics = self.quality_metrics(crop)
+        reason = self._crop_quality_reason(crop, metrics)
+        if reason != "accepted":
+            return False, 0.0, reason
+        embedding = np.asarray(face["embedding"])
+        if not np.any(embedding) or not np.all(np.isfinite(embedding)):
+            return False, 0.0, "face_features_unavailable"
         quality = float(np.clip((area_ratio * 8.0) + face["confidence"] * 0.2, 0.0, 1.0))
         return True, quality, "accepted"
 

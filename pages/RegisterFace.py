@@ -73,23 +73,29 @@ def render(current_user: dict[str, object]) -> None:
         saved = 0
         rejected = 0
 
-        def process_image(image: Image.Image, prefix: str) -> None:
+        def process_image(image: Image.Image, prefix: str, sample_label: str) -> None:
             nonlocal saved, rejected
             image = ImageOps.exif_transpose(image).convert("RGB")
             rgb = np.array(image)
             faces = face_service.detect_faces(rgb)
             valid, _, reason = face_service.evaluate_quality(rgb, faces)
-            if not valid:
+            def reject(reason: str) -> None:
+                nonlocal rejected
                 rejected += 1
-                st.warning(f"Photo rejected: {reason.replace('_', ' ')}. Use a sharp, well-lit close-up with one face.")
+                st.warning(f"{sample_label}: {face_service.rejection_message(reason)}")
+                logger.info("Face registration photo rejected: employee=%s reason=%s", employee_id, reason)
+                with st.expander(f"View photo: {sample_label}"):
+                    annotated = face_service.draw_annotations(rgb, faces) if faces else rgb
+                    st.image(annotated, caption="Check face size, lighting, and focus", width=320)
+            if not valid:
+                reject(reason)
                 return
             result = face_service.extract_face_embedding(rgb, faces)
             if result is None:
-                rejected += 1
+                reject("face_features_unavailable")
                 return
-            if embeddings and face_service.cosine_similarity(result.embedding, face_service.average_embedding(embeddings)) < settings.threshold:
-                rejected += 1
-                st.warning("Photo rejected: this face does not match the other photos in this batch. Check the selected employee and retake it.")
+            if embeddings and face_service.compare_embedding(result.embedding, embeddings)[0] < settings.threshold:
+                reject("inconsistent_face")
                 return
             sample_path = _save_image(selected_label.split(" - ", 1)[0], image, prefix)
             embeddings.append(result.embedding)
@@ -116,11 +122,11 @@ def render(current_user: dict[str, object]) -> None:
                 rejected += 1
                 st.warning(f"Could not read {file.name}. Upload a valid JPG or PNG photo.")
                 continue
-            process_image(image, f"upload_{idx}_{datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')}")
+            process_image(image, f"upload_{idx}_{datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')}", file.name)
 
         if camera_photo is not None:
             image = Image.open(camera_photo)
-            process_image(image, f"camera_{datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')}")
+            process_image(image, f"camera_{datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')}", "Camera photo")
 
         if embeddings:
             avg_embedding = face_service.average_embedding(embeddings)

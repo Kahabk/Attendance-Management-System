@@ -91,6 +91,14 @@ confirmation, not liveness or anti-spoofing detection.
 
 Only one face is accepted per enrollment photo. Quality checks examine the face
 crop for size, brightness, and blur. Inconsistent faces in one batch are rejected.
+Blur is measured at a fixed 112x112 face size so photo resolution does not
+change the check. Faces need the configured minimum pixel size, but do not have
+to fill a fixed percentage of the whole photo. Default quality thresholds are
+`FACE_BLUR_THRESHOLD=35` and `FACE_MIN_BRIGHTNESS=40`; restart the app after
+changing these environment variables. Rejection messages identify the photo,
+explain how to retake it, and offer a preview. Batch consistency compares the
+closest accepted photo rather than their average, accommodating varied angles
+without changing the identity recognition threshold.
 Enrollment reuses detections and caches its model per browser session.
 
 Existing enrollment vectors are tagged `legacy` and excluded from matching;

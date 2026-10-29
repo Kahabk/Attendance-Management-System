@@ -6,6 +6,7 @@ from threading import Lock
 from types import SimpleNamespace
 from unittest.mock import patch
 
+import cv2
 import numpy as np
 from sqlalchemy import create_engine, text
 
@@ -87,6 +88,44 @@ class ServiceTests(unittest.TestCase):
             result = service.extract_face_embedding(image)
         self.assertIsNotNone(result)
         detect.assert_called_once()
+
+
+class QualityTests(unittest.TestCase):
+    def setUp(self):
+        self.service = FaceService.__new__(FaceService)
+        self.service.recognizer = object()
+        self.service.model = None
+        rng = np.random.default_rng(10)
+        self.crop = rng.integers(70, 190, (112, 112, 3), dtype=np.uint8)
+        self.face = dict(bbox=(0, 0, 112, 112), embedding=np.ones(128), confidence=.99)
+
+    def test_valid_face_in_large_background_is_not_rejected_by_area(self):
+        image = np.zeros((1000, 1000, 3), dtype=np.uint8)
+        image[:112, :112] = self.crop
+        self.assertTrue(self.service.evaluate_quality(image, [self.face])[0])
+
+    def test_blur_measurement_is_consistent_across_resolutions(self):
+        large = np.repeat(np.repeat(self.crop, 4, axis=0), 4, axis=1)
+        small_metrics = self.service.quality_metrics(self.crop)
+        large_metrics = self.service.quality_metrics(large)
+        self.assertAlmostEqual(small_metrics["sharpness"], large_metrics["sharpness"], places=3)
+
+    def test_severely_blurred_face_is_still_rejected(self):
+        image = np.full((112, 112, 3), 120, dtype=np.uint8)
+        self.assertEqual(self.service.evaluate_quality(image, [self.face])[2], "blurred")
+
+    def test_dark_face_is_still_rejected(self):
+        self.assertEqual(self.service.evaluate_quality(self.crop // 5, [self.face])[2], "too_dark")
+
+    def test_tiny_face_is_still_rejected(self):
+        self.face["bbox"] = (0, 0, 20, 20)
+        self.assertEqual(self.service.evaluate_quality(self.crop, [self.face])[2], "face_too_small")
+
+    def test_invalid_features_have_distinct_error_from_missing_model(self):
+        self.face["embedding"] = np.zeros(128)
+        self.assertEqual(self.service.evaluate_quality(self.crop, [self.face])[2], "face_features_unavailable")
+        self.service.recognizer = None
+        self.assertEqual(self.service.evaluate_quality(self.crop, [self.face])[2], "recognition_unavailable")
 
 
 class MigrationTests(unittest.TestCase):
